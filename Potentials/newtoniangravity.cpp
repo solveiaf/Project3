@@ -23,7 +23,9 @@ void NewtonianGravity::computeForces(Particle* a, Particle* b) {
      * Since calculating the forces between a and b almost inevitably involves
      * calculating the potential energy, V(r), it is assumed by the Potential
      * class that this quantity is calculated here and added to the
-     * m_potentialEnergy variable.
+     * m_potentialEnergy variable. Note: You may skip this until you have a
+     * working two-body problem, since the calculation of the potential energy
+     * is only neccessary for verification purposes later.
      */
 
     // ...
