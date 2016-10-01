@@ -11,14 +11,22 @@ using std::endl;
 
 
 void System::computeForces() {
+    /*
+     * Here you should sum over all particle pairs and compute the forces
+     * between each one. This should be done by the Potential::computeForces
+     * method which takes pointers to two Particles as input. I.e. the forces
+     * between particle i and particle j should be computed by
+     *
+     *      m_potential->computeForces(m_particles.at(i), m_particles.at(j));
+     *
+     * Note: It is important that you do not sum over each particle pair more
+     * than once. A simple way to ensure this is done is by a double foor loop,
+     * one running from i=0...n, and the other running from j=i+1...n. You
+     * should convince yourself that this is true before you implement this
+     * loop.
+     */
     resetAllForces();
     m_potential->resetPotentialEnergy();
-
-    for (int i=0; i<m_numberOfParticles; i++) {
-        for (int j=i+1; j<m_numberOfParticles; j++) {
-            m_potential->computeForces(m_particles.at(i), m_particles.at(j));
-        }
-    }
 }
 
 void System::resetAllForces() {
@@ -60,18 +68,26 @@ void System::addParticle(Particle* p) {
 }
 
 double System::computeKineticEnergy() {
+    /*
+     * Here, the kinetic energy of the entire system should be computed. Since
+     * this is independent of the potential in use, we place this method
+     * directly in the system class.
+     *
+     * Remember that you can access the mass and velocity of particle i by
+     *
+     *      m_particles.at(i)->getMass()
+     *      m_particles.at(i)->getVelocity()
+     *
+     * Remember also that the Particle class has a built in method
+     * Particle::velocitySquared which can be used here.
+     */
     m_kineticEnergy = 0;
-    for (int i=0; i<m_numberOfParticles; i++) {
-        double velocitySquared = m_particles.at(i)->velocitySquared();
-        double mass = m_particles.at(i)->getMass();
-        m_kineticEnergy += 0.5*mass*velocitySquared;
-    }
     return m_kineticEnergy;
 }
 
 void System::printIntegrateInfo(int stepNumber) {
     if (stepNumber == 0) {
-        cout                                << endl
+        cout << endl
              << " STARTING INTEGRATION "    << endl
              << "-------------------------" << endl
              << "  o Number of steps:     " << m_integrateSteps << endl
@@ -92,20 +108,23 @@ void System::printIntegrateInfo(int stepNumber) {
 }
 
 void System::removeLinearMomentum() {
+    /*
+     * Here you should remove the total momentum of the entire system, to
+     * ensure the entire system does not drift away during long integration
+     * times.
+     *
+     * Remember that you can access the mass and velocity of particle i by
+     *
+     *      m_particles.at(i)->getMass();
+     *      m_particles.at(i)->getVelocity();
+     *
+     * Remember also that the vec3-vector class supports the += and -=
+     * operators, so you can do
+     *
+     *      totalMomentum += p->getVelocity() * p->getMass();
+     */
+
     vec3 totalMomentum = vec3(0,0,0);
-    for (int i=0; i<m_numberOfParticles; i++) {
-        Particle* p = m_particles.at(i);
-        totalMomentum += p->getVelocity() * p->getMass();
-    }
-    vec3 momentumToBeRemovedFromEachParticle = vec3(totalMomentum[0],
-                                                    totalMomentum[1],
-                                                    totalMomentum[2]);
-    momentumToBeRemovedFromEachParticle /= m_numberOfParticles;
-    for (int i=0; i<m_numberOfParticles; i++) {
-        Particle* p = m_particles.at(i);
-        p->getVelocity() -= momentumToBeRemovedFromEachParticle /
-                            p->getMass();
-    }
 }
 
 void System::setFileWriting(bool writeToFile) {

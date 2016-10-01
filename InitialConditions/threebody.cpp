@@ -5,12 +5,15 @@
 
 
 void ThreeBody::setupParticles(System* system) {
-    Particle* largeBody  = new Particle(vec3(0,0,0), vec3(0,0,0), 1.0);
-    Particle* smallBody1 = new Particle(vec3(1,0,0), vec3(0,2*M_PI,0), 1e-3);
-    Particle* smallBody2 = new Particle(vec3(0,2,0), vec3(-1.5*M_PI,0,0), 1e-2);
-    system->addParticle(largeBody);
-    system->addParticle(smallBody1);
-    system->addParticle(smallBody2);
+    /*
+     * This is where you should implement the initialization of a three-body
+     * system.
+     *
+     * You should start by impelmenting the two-body scheme in the
+     * InitialiCondition::TwoBody class, and then implement the more
+     * complicated three-body initialization only after you have a working
+     * implementation of the two-body case.
+     */
 }
 
 std::string ThreeBody::getName() {

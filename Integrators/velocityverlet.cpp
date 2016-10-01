@@ -3,7 +3,7 @@
 #include <system.h>
 
 VelocityVerlet::VelocityVerlet(System* system)
-        : Integrator(system) {
+    : Integrator(system) {
 }
 
 std::string VelocityVerlet::getName() {
@@ -11,21 +11,12 @@ std::string VelocityVerlet::getName() {
 }
 
 void VelocityVerlet::integrateOneStep(std::vector<Particle*> particles) {
-    int n = particles.size();
-    const double dtHalf = 0.5*m_dt;
-
-    if (m_firstStep == true) {
-        m_firstStep = false;
-        m_system->computeForces();
-    }
-    for (int i=0; i<n; i++) {
-        Particle* p = particles.at(i);
-        p->getVelocity() += p->getForce()    * dtHalf / p->getMass();
-        p->getPosition() += p->getVelocity() * m_dt;
-    }
-    m_system->computeForces();
-    for (int i=0; i<n; i++) {
-        Particle* p = particles.at(i);
-        p->getVelocity() += p->getForce()    * dtHalf / p->getMass();
-    }
+    /*
+     * This is where you should implement the Velocity Verlet algorithm.
+     *
+     * You should start by impelmenting the Euler-Cromer scheme in the
+     * Integrator::EulerCromer class, and then implement the more complicated
+     * Velocity Verlet algorithm only after you have a working implementation
+     * of Euler-Cromer.
+     */
 }
