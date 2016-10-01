@@ -10,9 +10,6 @@
 #include <InitialConditions/twobody.h>
 #include <InitialConditions/threebody.h>
 
-using std::cout;
-using std::endl;
-
 
 void Examples::twoBodyProblem() {
     System* twoBodySystem = new System();

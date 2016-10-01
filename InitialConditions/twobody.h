@@ -7,8 +7,8 @@
 
 class TwoBody : public InitialCondition {
 public:
-    TwoBody();
-    void setupParticles();
+    TwoBody() {}
+    void setupParticles(class System* system);
     std::string getName();
 };
 

@@ -60,17 +60,3 @@ void vec3::setVector(double x, double y, double z) {
     m_vector[1] = y;
     m_vector[2] = z;
 }
-
-void vec3::setX(double x) {
-    m_vector[0] = x;
-}
-
-void vec3::setY(double y) {
-    m_vector[1] = y;
-}
-
-void vec3::setZ(double z) {
-    m_vector[2] = z;
-}
-
-

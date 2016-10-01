@@ -5,7 +5,7 @@
 
 class ThreeBody : public InitialCondition {
 public:
-    ThreeBody();
-    void setupParticles();
+    ThreeBody() {}
+    void setupParticles(class System* system);
     std::string getName();
 };

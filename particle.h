@@ -13,8 +13,6 @@ public:
     Particle(class vec3 position, class vec3 velocity, double mass);
     void resetForces();
     void addForce(double dFx, double dFy, double dFz);
-    void addPosition(double dx, double dy, double dz);
-    void addVelocity(double dVx, double dVy, double dVz);
     double velocitySquared();
 
     // Getters.

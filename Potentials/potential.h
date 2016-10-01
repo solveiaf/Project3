@@ -7,7 +7,7 @@ protected:
     double m_potentialEnergy = 0;
 
 public:
-    Potential();
+    Potential() {}
     virtual void computeForces(Particle* a, Particle* b) = 0;
     virtual std::string getName();
     void   resetPotentialEnergy() { m_potentialEnergy = 0; }

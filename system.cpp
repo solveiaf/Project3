@@ -37,9 +37,7 @@ void System::setIntegrator(Integrator* integrator) {
 
 void System::setInitialCondition(InitialCondition* initialCondition) {
     m_initialCondition = initialCondition;
-    m_initialCondition->setupParticles();
-    m_particles = m_initialCondition->getParticles();
-    m_numberOfParticles = m_particles.size();
+    m_initialCondition->setupParticles(this);
 }
 
 void System::setDt(double dt) {
@@ -72,7 +70,7 @@ double System::computeKineticEnergy() {
 }
 
 void System::printIntegrateInfo(int stepNumber) {
-    if (stepNumber==0) {
+    if (stepNumber == 0) {
         cout                                << endl
              << " STARTING INTEGRATION "    << endl
              << "-------------------------" << endl

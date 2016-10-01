@@ -4,7 +4,6 @@
 
 VelocityVerlet::VelocityVerlet(System* system)
         : Integrator(system) {
-
 }
 
 std::string VelocityVerlet::getName() {
