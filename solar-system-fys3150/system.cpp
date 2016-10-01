@@ -14,6 +14,7 @@ System::System() {
 
 void System::computeForces() {
     resetAllForces();
+    m_potential->resetPotentialEnergy();
 
     for (int i=0; i<m_numberOfParticles; i++) {
         for (int j=i+1; j<m_numberOfParticles; j++) {
