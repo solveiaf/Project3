@@ -2,7 +2,6 @@
 
 class Examples {
 public:
-    Examples() {}
-
     static void twoBodyProblem();
+    static void threeBodyProblem();
 };

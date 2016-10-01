@@ -1,8 +1,8 @@
 #include <iostream>
 #include <examples.h>
 
-int main(int argc, char* argv[]) {
-
-    Examples::twoBodyProblem();
+int main(int, char**) {
+    //Examples::twoBodyProblem();
+    Examples::threeBodyProblem();
     return 0;
 }

@@ -4,23 +4,33 @@
 #include <system.h>
 #include <particle.h>
 #include <Integrators/eulercromer.h>
+#include <Integrators/velocityverlet.h>
 #include <Potentials/newtoniangravity.h>
+#include <Potentials/nopotential.h>
+#include <InitialConditions/twobody.h>
+#include <InitialConditions/threebody.h>
 
 using std::cout;
 using std::endl;
 
+
 void Examples::twoBodyProblem() {
     System* twoBodySystem = new System();
-    twoBodySystem->setIntegrator(new EulerCromer(twoBodySystem));
+    twoBodySystem->setIntegrator(new VelocityVerlet(twoBodySystem));
     twoBodySystem->setPotential(new NewtonianGravity(4*M_PI*M_PI));
+    twoBodySystem->setInitialCondition(new TwoBody());
     twoBodySystem->setFileWriting(true);
-
-    Particle* largeBody = new Particle(vec3(0,0,0), vec3(0,0,0), 1.0);
-    Particle* smallBody = new Particle(vec3(1,0,0), vec3(0,2*M_PI,0), 1e-3);
-
-    twoBodySystem->addParticle(largeBody);
-    twoBodySystem->addParticle(smallBody);
-
     twoBodySystem->removeLinearMomentum();
-    twoBodySystem->integrate(5000);
+    twoBodySystem->integrate(50000);
+}
+
+void Examples::threeBodyProblem() {
+    System* threeBodySystem = new System();
+    threeBodySystem->setIntegrator(new EulerCromer(threeBodySystem));
+    threeBodySystem->setPotential(new NewtonianGravity(4*M_PI*M_PI));
+    threeBodySystem->setInitialCondition(new ThreeBody());
+    threeBodySystem->setFileWriting(true);
+    threeBodySystem->setDt(1e-5);
+    threeBodySystem->removeLinearMomentum();
+    threeBodySystem->integrate(5000000);
 }
