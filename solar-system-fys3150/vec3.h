@@ -15,9 +15,11 @@ public:
     double& operator[](int i)   { return m_vector[i]; }
     vec3& operator+=(vec3 v);
     vec3& operator-=(vec3 v);
+    vec3& operator/=(double a);
     vec3 operator-(vec3 v);
     vec3 operator*(double a);
     vec3 operator/(double a);
+
 
     // Setters.
     void setVector(double x, double y, double z);

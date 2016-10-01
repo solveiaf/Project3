@@ -29,6 +29,13 @@ vec3& vec3::operator+=(vec3 v) {
     return *this;
 }
 
+vec3& vec3::operator-=(vec3 v) {
+    m_vector[0] -= v[0];
+    m_vector[1] -= v[1];
+    m_vector[2] -= v[2];
+    return *this;
+}
+
 vec3 vec3::operator-(vec3 v) {
     return vec3(m_vector[0]-v[0], m_vector[1]-v[1], m_vector[2]-v[2]);
 }
@@ -41,6 +48,12 @@ vec3 vec3::operator/(double a) {
     return vec3(m_vector[0]/a, m_vector[1]/a, m_vector[2]/a);
 }
 
+vec3& vec3::operator/=(double a) {
+    m_vector[0] /= a;
+    m_vector[1] /= a;
+    m_vector[2] /= a;
+    return *this;
+}
 
 void vec3::setVector(double x, double y, double z) {
     m_vector[0] = x;

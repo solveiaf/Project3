@@ -13,6 +13,7 @@ void Examples::twoBodyProblem() {
     System* twoBodySystem = new System();
     twoBodySystem->setIntegrator(new EulerCromer(twoBodySystem));
     twoBodySystem->setPotential(new NewtonianGravity(4*M_PI*M_PI));
+    twoBodySystem->setFileWriting(true);
 
     Particle* largeBody = new Particle(vec3(0,0,0), vec3(0,0,0), 1.0);
     Particle* smallBody = new Particle(vec3(1,0,0), vec3(0,2*M_PI,0), 1e-3);
@@ -20,5 +21,6 @@ void Examples::twoBodyProblem() {
     twoBodySystem->addParticle(largeBody);
     twoBodySystem->addParticle(smallBody);
 
+    twoBodySystem->removeLinearMomentum();
     twoBodySystem->integrate(5000);
 }

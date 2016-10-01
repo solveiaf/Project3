@@ -1,9 +1,11 @@
 #pragma once
 #include <vector>
 #include <particle.h>
+#include <fstream>
 
 class System {
 private:
+    std::ofstream               m_outFile;
     bool                        m_writeToFile       = false;
     bool                        m_outFileOpen       = false;
     int                         m_integrateSteps    = 0;
@@ -24,7 +26,9 @@ public:
     void integrate              (int numberOfSteps);
     void addParticle            (Particle* p);
     void printIntegrateInfo     (int stepNumber);
+    void removeLinearMomentum   ();
     void setFileWriting         (bool writeToFile);
+    void writePositionsToFile   ();
     double computeKineticEnergy ();
 };
 

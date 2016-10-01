@@ -42,7 +42,7 @@ void System::integrate(int numberOfSteps) {
     for (int i=1; i<numberOfSteps+1; i++) {
         m_integrator->integrateOneStep(m_particles);
         printIntegrateInfo(i);
-
+        writePositionsToFile();
     }
 }
 
@@ -82,14 +82,38 @@ void System::printIntegrateInfo(int stepNumber) {
     }
 }
 
+void System::removeLinearMomentum() {
+    vec3 totalMomentum = vec3(0,0,0);
+    for (int i=0; i<m_numberOfParticles; i++) {
+        Particle* p = m_particles.at(i);
+        totalMomentum += p->getVelocity() * p->getMass();
+    }
+    vec3 momentumToBeRemovedFromEachParticle = vec3(totalMomentum[0],
+                                                    totalMomentum[1],
+                                                    totalMomentum[2]);
+    momentumToBeRemovedFromEachParticle /= m_numberOfParticles;
+    for (int i=0; i<m_numberOfParticles; i++) {
+        Particle* p = m_particles.at(i);
+        p->getVelocity() -= momentumToBeRemovedFromEachParticle;
+    }
+}
+
 void System::setFileWriting(bool writeToFile) {
     m_writeToFile = writeToFile;
 }
 
 void System::writePositionsToFile() {
-    for (int i=0; i<m_numberOfParticles; i++) {
-        //
+    if (m_outFileOpen == false) {
+        m_outFile.open("positions.dat", std::ios::out);
+        m_outFileOpen = true;
     }
+    for (int i=0; i<m_numberOfParticles; i++) {
+        Particle* p = m_particles.at(i);
+        m_outFile << p->getPosition()[0] << " "
+                  << p->getPosition()[1] << " "
+                  << p->getPosition()[2] << " ";
+    }
+    m_outFile << endl;
 }
 
 
