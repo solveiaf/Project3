@@ -32,16 +32,16 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const vec3& myVector); // Allows cout << myVector << endl;
 
     // Operators
-    double &operator()(int index) { return components[index]; } // Allows access like myVector(0)
+    double operator()(int index) const { return components[index]; } // Allows access like myVector(0)
     double &operator[](int index) { return components[index]; } // Allows access like myVector[0]
     vec3 &operator+=(double rhs); // Componentwise addition with scalar
-    vec3 &operator+=(vec3 rhs);   // Componentwise addition with vector
+    vec3 &operator+=(const vec3 &rhs);   // Componentwise addition with vector
     vec3 &operator*=(double rhs); // Componentwise multiplication with scalar
-    vec3 &operator*=(vec3 rhs);   // Componentwise multiplicationwith vector
+    vec3 &operator*=(const vec3 &rhs);   // Componentwise multiplicationwith vector
     vec3 &operator-=(double rhs); // Componentwise subtraction with scalar
-    vec3 &operator-=(vec3 rhs);   // Componentwise subtraction with vector
+    vec3 &operator-=(const vec3 &rhs);   // Componentwise subtraction with vector
     vec3 &operator/=(double rhs); // Componentwise division with scalar
-    vec3 &operator/=(vec3 rhs);   // Componentwise division with vector
+    vec3 &operator/=(const vec3 &rhs);   // Componentwise division with vector
 private:
     double components[3];
 };
