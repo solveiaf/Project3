@@ -82,11 +82,11 @@ vec3 &vec3::operator+=(double rhs)
     return *this;
 }
 
-vec3 &vec3::operator+=(vec3 rhs)
+vec3 &vec3::operator+=(const vec3 &rhs)
 {
-    components[0] += rhs[0];
-    components[1] += rhs[1];
-    components[2] += rhs[2];
+    components[0] += rhs(0);
+    components[1] += rhs(1);
+    components[2] += rhs(2);
     return *this;
 }
 
@@ -98,11 +98,11 @@ vec3 &vec3::operator*=(double rhs)
     return *this;
 }
 
-vec3 &vec3::operator*=(vec3 rhs)
+vec3 &vec3::operator*=(const vec3 &rhs)
 {
-    components[0] *= rhs[0];
-    components[1] *= rhs[1];
-    components[2] *= rhs[2];
+    components[0] *= rhs(0);
+    components[1] *= rhs(1);
+    components[2] *= rhs(2);
     return *this;
 }
 
@@ -114,11 +114,11 @@ vec3 &vec3::operator-=(double rhs)
     return *this;
 }
 
-vec3 &vec3::operator-=(vec3 rhs)
+vec3 &vec3::operator-=(const vec3 &rhs)
 {
-    components[0] -= rhs[0];
-    components[1] -= rhs[1];
-    components[2] -= rhs[2];
+    components[0] -= rhs(0);
+    components[1] -= rhs(1);
+    components[2] -= rhs(2);
     return *this;
 }
 
@@ -130,11 +130,11 @@ vec3 &vec3::operator/=(double rhs)
     return *this;
 }
 
-vec3 &vec3::operator/=(vec3 rhs)
+vec3 &vec3::operator/=(const vec3 &rhs)
 {
-    components[0] /= rhs[0];
-    components[1] /= rhs[1];
-    components[2] /= rhs[2];
+    components[0] /= rhs(0);
+    components[1] /= rhs(1);
+    components[2] /= rhs(2);
     return *this;
 }
 
