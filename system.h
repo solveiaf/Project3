@@ -32,6 +32,7 @@ public:
     void removeLinearMomentum   ();
     void setFileWriting         (bool writeToFile);
     void writePositionsToFile   ();
+    void closeOutFile           ();
     double computeKineticEnergy ();
 };
 

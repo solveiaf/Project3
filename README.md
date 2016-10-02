@@ -17,7 +17,7 @@ Here follows a step by step guide to getting started with using this class struc
 
 ## Completing the missing parts
 Here follows a suggestion for how you can work to complete the missing parts of the code.
-- Start by implementing the `NewtoninanGravity::computeForces(Particle* a, Particle* b)` method. This function should compute the forces between only the two particles a and b.
+- Start by implementing the `NewtoninanGravity::computeForces(Particle& a, Particle& b)` method. This function should compute the forces between only the two particles a and b.
 - Secondly, implement the missing `System::computeForces()` method. This should sum over all pairs of particles and compute the corresponding forces using the `NewtoninanGravity::computeForces` method which you just implemented.
 - Third, you should complete the `EulerCromer::integrateOneStep()` method, which advances the ODE one time step forward. 
 After you have done this, you should have a working implementation of the two-body problem. In the following, we need to do some more "fine tuning".
