@@ -60,6 +60,7 @@ void System::integrate(int numberOfSteps) {
         printIntegrateInfo(i);
         writePositionsToFile();
     }
+    closeOutFile();
 }
 
 void System::addParticle(Particle* p) {
@@ -136,13 +137,21 @@ void System::writePositionsToFile() {
         m_outFile.open("positions.dat", std::ios::out);
         m_outFileOpen = true;
     }
-    for (int i=0; i<m_numberOfParticles; i++) {
-        Particle* p = m_particles.at(i);
-        m_outFile << p->getPosition()[0] << " "
-                  << p->getPosition()[1] << " "
-                  << p->getPosition()[2] << " ";
+    /*
+     * This is where you should print the positions of each particle to file.
+     * Note that the file, "positions.dat", is already open; it is opened in
+     * the above if-test the first time this method is called in
+     * System::Integrate.
+     *
+     * Which format you choose for the data file is up to you.
+     */
+}
+
+void System::closeOutFile() {
+    if (m_writeToFile == true) {
+        m_outFile.close();
+        m_outFileOpen = false;
     }
-    m_outFile << endl;
 }
 
 
