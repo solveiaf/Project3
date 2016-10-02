@@ -1,14 +1,14 @@
 #pragma once
-#include <particle.h>
+#include "particle.h"
+#include "potential.h"
 #include <string>
-#include <Potentials/potential.h>
 
 class NewtonianGravity : public Potential {
 private:
-    double m_G = 0;
+    double m_G;
 
 public:
     NewtonianGravity(double G);
-    void computeForces(Particle* a, Particle* b);
+    void computeForces(Particle& a, Particle& b);
     std::string getName();
 };

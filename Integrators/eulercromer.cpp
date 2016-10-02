@@ -1,6 +1,5 @@
-#include <Integrators/eulercromer.h>
-#include <Integrators/integrator.h>
-#include <system.h>
+#include "eulercromer.h"
+#include "../system.h"
 
 EulerCromer::EulerCromer(System* system)
     : Integrator(system) {

@@ -1,5 +1,5 @@
-#include <particle.h>
-#include <vec3.h>
+#include "particle.h"
+#include "vec3.h"
 
 Particle::Particle()
         : Particle(vec3(), vec3(), 0) {

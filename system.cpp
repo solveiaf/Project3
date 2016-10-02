@@ -1,10 +1,10 @@
-#include <system.h>
-#include <iostream>
-#include <Integrators/integrator.h>
-#include <Potentials/potential.h>
-#include <InitialConditions/initialcondition.h>
-#include <particle.h>
+#include "system.h"
+#include "Integrators/integrator.h"
+#include "Potentials/potential.h"
+#include "InitialConditions/initialcondition.h"
+#include "particle.h"
 
+#include <iostream>
 using std::cout;
 using std::endl;
 
@@ -45,7 +45,7 @@ void System::setIntegrator(Integrator* integrator) {
 
 void System::setInitialCondition(InitialCondition* initialCondition) {
     m_initialCondition = initialCondition;
-    m_initialCondition->setupParticles(this);
+    m_initialCondition->setupParticles(*this);
 }
 
 void System::setDt(double dt) {

@@ -1,6 +1,6 @@
 #pragma once
+#include "particle.h"
 #include <vector>
-#include <particle.h>
 #include <fstream>
 
 class System {

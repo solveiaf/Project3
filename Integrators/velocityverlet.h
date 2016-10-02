@@ -1,7 +1,7 @@
 #pragma once
-#include <Integrators/integrator.h>
+#include "integrator.h"
+#include "../particle.h"
 #include <string>
-#include <particle.h>
 
 class VelocityVerlet : public Integrator {
 private:

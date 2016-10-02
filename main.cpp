@@ -1,5 +1,5 @@
 #include <iostream>
-#include <examples.h>
+#include "examples.h"
 
 int main(int, char**) {
     Examples::twoBodyProblem();

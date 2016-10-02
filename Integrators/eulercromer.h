@@ -1,7 +1,7 @@
 #pragma once
-#include <Integrators/integrator.h>
+#include "integrator.h"
+#include "../particle.h"
 #include <vector>
-#include <particle.h>
 
 class EulerCromer : public Integrator {
 public:

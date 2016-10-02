@@ -1,10 +1,10 @@
-#include <InitialConditions/twobody.h>
-#include <vec3.h>
-#include <system.h>
+#include "twobody.h"
+#include "../vec3.h"
+#include "../system.h"
 #include <cmath>
 
 
-void TwoBody::setupParticles(System* system) {
+void TwoBody::setupParticles(System &system) {
     /*
      * Here, two bodies are created at a distance r=1.0 apart from eachother.
      * A heavy body is placed in the origin, while a lighter body is placed
@@ -26,8 +26,8 @@ void TwoBody::setupParticles(System* system) {
 
     Particle* largeBody = new Particle(vec3(0,0,0), vec3(0,0,0), 1.0);
     Particle* smallBody = new Particle(vec3(1,0,0), vec3(0,1,0), 0.1);
-    system->addParticle(largeBody);
-    system->addParticle(smallBody);
+    system.addParticle(largeBody);
+    system.addParticle(smallBody);
 }
 
 std::string TwoBody::getName() {

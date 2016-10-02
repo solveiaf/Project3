@@ -1,14 +1,14 @@
-#include <examples.h>
+#include "examples.h"
+#include "system.h"
+#include "particle.h"
+#include "Integrators/eulercromer.h"
+#include "Integrators/velocityverlet.h"
+#include "Potentials/newtoniangravity.h"
+#include "Potentials/nopotential.h"
+#include "InitialConditions/twobody.h"
+#include "InitialConditions/threebody.h"
 #include <iostream>
 #include <cmath>
-#include <system.h>
-#include <particle.h>
-#include <Integrators/eulercromer.h>
-#include <Integrators/velocityverlet.h>
-#include <Potentials/newtoniangravity.h>
-#include <Potentials/nopotential.h>
-#include <InitialConditions/twobody.h>
-#include <InitialConditions/threebody.h>
 
 
 void Examples::twoBodyProblem() {

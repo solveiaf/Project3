@@ -1,5 +1,5 @@
-#include <Integrators/integrator.h>
-#include <system.h>
+#include "integrator.h"
+#include "../system.h"
 
 Integrator::Integrator(System* system) {
     m_system = system;

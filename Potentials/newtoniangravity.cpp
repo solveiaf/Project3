@@ -1,11 +1,11 @@
-#include <Potentials/newtoniangravity.h>
+#include "newtoniangravity.h"
 #include <iostream>
 
-NewtonianGravity::NewtonianGravity(double G) {
-    m_G = G;
+NewtonianGravity::NewtonianGravity(double G) : m_G(G) {
+
 }
 
-void NewtonianGravity::computeForces(Particle* a, Particle* b) {
+void NewtonianGravity::computeForces(Particle& a, Particle& b) {
     /*
      * This is where the ordinary Newtoninan gravity forces and potential
      * energies should be calculated. This method is called by the System
@@ -14,8 +14,8 @@ void NewtonianGravity::computeForces(Particle* a, Particle* b) {
      * Note that you may access the mass and the position of the particles a
      * and b by
      *
-     *      a->getMass();       b->getMass();
-     *      a->getPosition();   b->getPosition();
+     *      a.getMass();       b.getMass();
+     *      a.getPosition();   b.getPosition();
      *
      * In order to apply the forces to each particle, it is easiest to use the
      * Particle::addForce method.
@@ -30,8 +30,8 @@ void NewtonianGravity::computeForces(Particle* a, Particle* b) {
 
     // ...
     //m_potentialEnergy += V;
-    //a->addForce(dFx, dFy, dFz);
-    //b->addForce(...);
+    //a.addForce(dFx, dFy, dFz);
+    //b.addForce(...);
 }
 
 std::string NewtonianGravity::getName() {

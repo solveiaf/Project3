@@ -1,10 +1,10 @@
-#include <InitialConditions/threebody.h>
-#include <vec3.h>
-#include <system.h>
+#include "threebody.h"
+#include "../vec3.h"
+#include "../system.h"
 #include <cmath>
 
 
-void ThreeBody::setupParticles(System* system) {
+void ThreeBody::setupParticles(System &system) {
     /*
      * This is where you should implement the initialization of a three-body
      * system.

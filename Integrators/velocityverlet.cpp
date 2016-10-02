@@ -1,6 +1,5 @@
-#include <Integrators/velocityverlet.h>
-#include <Integrators/integrator.h>
-#include <system.h>
+#include "velocityverlet.h"
+#include "../system.h"
 
 VelocityVerlet::VelocityVerlet(System* system)
     : Integrator(system) {
