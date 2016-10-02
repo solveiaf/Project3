@@ -107,4 +107,3 @@ inline vec3 operator/(vec3 lhs, vec3 rhs) {
     lhs /= rhs;
     return lhs;
 }
-
