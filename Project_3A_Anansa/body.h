@@ -6,13 +6,16 @@ class Body
 {
 private:
     double mass;
-    double velocity[];
-    double r;
+    double r0[3];
+    double v0[3];
+    double v[][];
+    double r[][];
 public:
-    Body(double m, double radii);
+    Body(double m, double radii[3], double v0[3]);
     double getMass();
     double getRadii();
-    void calculateVelocity(double r, double mass1, double mass2);
+    void calculateVelocityVerlet(double mass2);
+    void calculateVelocityEuler(double mass2);
 };
 
 #endif // BODY_H
