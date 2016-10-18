@@ -5,8 +5,8 @@ Body::Body(double m, double x, double y, double vx, double vy, double AU)
 {
     radii = AU;
     mass = m;
-    vx[0] = vx;
-    vy[0] = vy;
+    vx = vx;
+    vy = vy;
     x[0] = x;
     y[0] = y;
 }
@@ -20,7 +20,14 @@ double Body::getRadii(double x, double y) {
 }
 
 void Body::calculateVelocityVerlet(double mass2) {
+        //Algortihm for calculating velocity verlet
+    for (int i = 0; i<n; i++) {
+        x[i+1] = x[i] + h*vx[i] + ((h*h)/2.) *a;
+        y[i+1] = y[i] + h*vy[i] + ((h*h)/2.) *a;
+        vx[i+1] = vx[i] + h*a;
+        vy[i+1] = vy[i] + h*a;
 
+    }
 }
 
 void Body::calculateVelocityEuler(double n, double time) {
@@ -34,3 +41,5 @@ void Body::calculateVelocityEuler(double n, double time) {
     }
     return;
 }
+
+
