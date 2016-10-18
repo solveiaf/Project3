@@ -1,20 +1,36 @@
 #include "body.h"
 #include <cmath>
 
-Body::Body(double m, double radii)
+Body::Body(double m, double x, double y, double vx, double vy, double AU)
 {
+    radii = AU;
     mass = m;
-    r = radii;
+    vx[0] = vx;
+    vy[0] = vy;
+    x[0] = x;
+    y[0] = y;
 }
 
 double Body::getMass() {
     return mass;
 }
 
-double Body::getRadii() {
-    return r;
+double Body::getRadii(double x, double y) {
+    return sqrt(pow(x,2) + pow(y,2));
 }
 
-void Body::calculateVelocity(double r, double mass1, double mass2) {
+void Body::calculateVelocityVerlet(double mass2) {
 
+}
+
+void Body::calculateVelocityEuler(double n, double time) {
+    double dt = time/n;
+    for (int i=0; i<n; i++) {
+        r = Body::getRadii(x[i],y[i]);
+        x[i+1] = x[i] + vx*dt;
+        y[i+1] = y[i] + vy*dt;
+        vx -= (dt*4*pi*pi*pow(AU,3))/(pow(r,3)*time)*x[i];
+        vy -= (dt*4*pi*pi*pow(AU,3))/(pow(r,3)*time)*y[i];
+    }
+    return;
 }
