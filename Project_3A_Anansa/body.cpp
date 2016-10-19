@@ -1,5 +1,8 @@
 #include "body.h"
 #include <cmath>
+#include <fstream>
+#include <string>
+using namespace std;
 
 Body::Body(double m, double x, double y, double vx, double vy, double AU, double year, double n)
 {
@@ -27,6 +30,26 @@ double Body::calculateAcceleration(double x, double y) {
     double radii = getRadii(x,y);
     double a = (h*pi*pi*pow(AU,3))/(pow(radii,3)*year);
     return a;
+}
+
+void Body::input() {
+    ifstream ifile;
+}
+
+void Body::output(double x, double y, h, n)  {
+    ofstream ofile;
+    string outfilename;
+
+    cout << "Please enter the outputfilename: ";
+    cin >> outfilename;
+
+    ofile.open(outfilename);
+    ofile << "x  " << "y " << "t  " << "timestep=" << h << "n= " << n << endl;
+    double t;
+    for (int i; i <=n; i++){
+        t = h*i;
+        ofile << x[i] <<"   " << y[i] << "   " << t << endl;
+    }
 }
 
 

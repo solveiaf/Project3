@@ -19,6 +19,8 @@ public:
     double getRadii(double x, double y);
     void calculateVelocityVerlet(double mass2);
     void calculateVelocityEuler(double mass2);
+    void input();
+    void output(double x, double y);
 };
 
 #endif // BODY_H
