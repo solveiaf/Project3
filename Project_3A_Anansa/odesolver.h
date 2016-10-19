@@ -6,10 +6,12 @@ class ODESolver
 {
 private:
     double n, h, a;
+    double * x;
+    double * y;
 public:
-    ODESolver();
-    void VelocityVerlet(double n, double h, double a);
-    void Euler(double n, double h, double a);
+    ODESolver(double n, double h, double a);
+    void VelocityVerlet();
+    void Euler();
 };
 
 #endif // ODESOLVER_H

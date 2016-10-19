@@ -4,21 +4,24 @@
 #include <string>
 using namespace std;
 
-Body::Body(double m, double x, double y, double vx, double vy, double AU, double year, double n)
+Body::Body(double x, double y, double vx, double vy, double AU, double year, double n)
 {
     h = year/n;
     r = AU;
-    mass = m;
     vx = vx;
     vy = vy;
-    x[0] = x;
-    y[0] = y;
+    x = x;
+    y = y;
     y = year;
     n = n;
 }
 
 double Body::getStep() {
     return h;
+}
+
+double Body::getNumber() {
+    return n;
 }
 
 double Body::getRadii(double x, double y) {

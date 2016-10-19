@@ -5,20 +5,18 @@
 class Body
 {
 private:
-    double mass;
     double r;
     double vx;
     double vy;
-    double x[];
-    double y[];
     double n;
     double h;
+    double x;
+    double y;
 public:
-    Body(double m, double x, double y, double vx, double vy);
-    double getMass();
+    Body(double x, double y, double vx, double vy, double AU, double year, double n);
+    double getStep();
+    double getNumber();
     double getRadii(double x, double y);
-    void calculateVelocityVerlet(double mass2);
-    void calculateVelocityEuler(double mass2);
     void input();
     void output(double x, double y);
 };

@@ -2,14 +2,16 @@
 #include <cmath>
 
 ODESolver::ODESolver(double n, double h, double a) {
+    x = new double[n];
+    y = new double[n];
     n = n;
     h = h;
     a = a;
-    VelocityVerlet(n,h,a);
-    Euler(n,h,a);
+    VelocityVerlet();
+    Euler();
 }
 
-void ODESolver:VelocityVerlet(double n, double h, double a) {
+void ODESolver::VelocityVerlet() {
     //Algortihm for calculating velocity verlet
     for (int i = 0; i<n; i++) {
         x[i+1] = x[i] + h*vx + ((h*h)/2.) * a*x[i];
@@ -21,7 +23,7 @@ void ODESolver:VelocityVerlet(double n, double h, double a) {
     return;
 }
 
-void ODESolver:Euler(double n, double h, double a) {
+void ODESolver::Euler() {
     for (int i=0; i<n; i++) {
         x[i+1] = x[i] + vx*h;
         y[i+1] = y[i] + vy*h;
