@@ -31,7 +31,7 @@ double Body::getRadii(double x, double y) {
 double Body::calculateAcceleration(double x, double y) {
     double h = year/n;
     double radii = getRadii(x,y);
-    double a = (h*pi*pi*pow(AU,3))/(pow(radii,3)*year);
+    double a = (h*pi*pi*pow(r,3))/(pow(radii,3)*year);
     return a;
 }
 

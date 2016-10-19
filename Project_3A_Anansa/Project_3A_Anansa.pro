@@ -11,8 +11,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     body.cpp \
-    odesolver.cpp
+    odesolver.cpp \
+    system.cpp
 
 HEADERS += \
     body.h \
-    odesolver.h
+    odesolver.h \
+    system.h

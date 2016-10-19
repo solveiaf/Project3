@@ -10,5 +10,5 @@
 // }
 
 int main() {
-   Body earth = new Body(1,0,1,0)
+   System sys = new System();
 }
