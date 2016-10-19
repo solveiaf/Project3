@@ -23,8 +23,9 @@ void Body::calculateVelocityVerlet(double n, double year) {
     double h = year/n;
         //Algortihm for calculating velocity verlet
     for (int i = 0; i<n; i++) {
-        x[i+1] = x[i] + h*vx + ((h*h)/2.) *a;
-        y[i+1] = y[i] + h*vy + ((h*h)/2.) *a;
+        r = Body::getRadii(x[i],y[i]);
+        x[i+1] = x[i] + h*vx + ((h*h)/2.) * (h*4*pi*pi*pow(AU,3))/(pow(r,3)*year)*x[i];
+        y[i+1] = y[i] + h*vy + ((h*h)/2.) * (h*4*pi*pi*pow(AU,3))/(pow(r,3)*year)*y[i];
         vx += h*a;
         vy += h*a;
 
@@ -33,7 +34,7 @@ void Body::calculateVelocityVerlet(double n, double year) {
 }
 
 void Body::calculateVelocityEuler(double n, double year) {
-    double dt = year/n;
+    double h = year/n;
     for (int i=0; i<n; i++) {
         r = Body::getRadii(x[i],y[i]);
         x[i+1] = x[i] + vx*h;
