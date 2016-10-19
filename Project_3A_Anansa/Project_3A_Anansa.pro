@@ -10,7 +10,9 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    body.cpp
+    body.cpp \
+    odesolver.cpp
 
 HEADERS += \
-    body.h
+    body.h \
+    odesolver.h

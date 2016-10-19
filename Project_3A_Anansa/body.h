@@ -6,11 +6,13 @@ class Body
 {
 private:
     double mass;
-    double radii;
+    double r;
     double vx;
     double vy;
     double x[];
     double y[];
+    double n;
+    double h;
 public:
     Body(double m, double x, double y, double vx, double vy);
     double getMass();
