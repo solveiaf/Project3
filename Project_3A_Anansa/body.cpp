@@ -22,10 +22,10 @@ double Body::getRadii(double x, double y) {
 void Body::calculateVelocityVerlet(double mass2) {
         //Algortihm for calculating velocity verlet
     for (int i = 0; i<n; i++) {
-        x[i+1] = x[i] + h*vx[i] + ((h*h)/2.) *a;
-        y[i+1] = y[i] + h*vy[i] + ((h*h)/2.) *a;
-        vx[i+1] = vx[i] + h*a;
-        vy[i+1] = vy[i] + h*a;
+        x[i+1] = x[i] + h*vx + ((h*h)/2.) *a;
+        y[i+1] = y[i] + h*vy + ((h*h)/2.) *a;
+        vx += h*a;
+        vy += h*a;
 
     }
 }
