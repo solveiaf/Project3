@@ -11,11 +11,11 @@ private:
     double mass;
 
 public:
-    Body(double x, double y, double vx, double vy, double mass);
-    double getStep();
-    double getNumber();
-    void setVelocity();
-    double getRadii(double x, double y);
+    Body(double x, double y, double vx, double vy, double mass, int n);
+    double getXPosition(int index);
+    double getYPosition(int index);
+    double getXVelocity(int index);
+    double getYVelocity(int index);
     void input();
     void output(double x, double y);
 };

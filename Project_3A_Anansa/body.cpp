@@ -1,3 +1,8 @@
+#include <QCoreApplication>
+#include "body.h"
+#include "odesolver.h"
+#include "system.h"
+
 Body::Body(double x, double y, double vx, double vy, double m, double n) {
     x = new double[n];
     y = new double[n];
@@ -16,8 +21,12 @@ double Body::getYPosition(int index) {
     return y[index];
 }
 
-double Body::setXPosition(int index, double position) {
-    x[index] =
+double Body::getYVelocity() {
+    return vy;
+}
+
+double Body::getXVelocity() {
+    return vx;
 }
 
 double Body::getMass() {
