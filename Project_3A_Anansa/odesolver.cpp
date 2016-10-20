@@ -3,11 +3,6 @@
 #include "system.h"
 
 ODESolver::ODESolver(System system) {
-    n = Body::getNumber();
-    h = Body::getStep();
-    a = system.calculateAcceleration();
-    x = new double[n];
-    y = new double[n];
     VelocityVerlet();
     Euler();
 }

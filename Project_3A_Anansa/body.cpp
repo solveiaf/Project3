@@ -1,21 +1,27 @@
-Body::Body(double x, double y, double vx, double vy, double AU, double year, double n)
-{
-    h = year/n;
-    r = AU;
+Body::Body(double x, double y, double vx, double vy, double m, double n) {
+    x = new double[n];
+    y = new double[n];
+    x[0] = x;
+    y[0] = y;
     vx = vx;
     vy = vy;
-    x = x;
-    y = y;
-    y = year;
-    n = n;
+    mass = m;
 }
 
-double Body::getStep() {
-    return h;
+double Body::getXPosition(int index) {
+    return x[index];
 }
 
-double Body::getNumber() {
-    return n;
+double Body::getYPosition(int index) {
+    return y[index];
+}
+
+double Body::setXPosition(int index, double position) {
+    x[index] =
+}
+
+double Body::getMass() {
+    return mass;
 }
 
 
