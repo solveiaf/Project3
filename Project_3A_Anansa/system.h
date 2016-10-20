@@ -9,7 +9,9 @@ private:
 public:
     System();
     void readFile();
-    double calculateAcceleration();
+    //Two body problem
+    double calculateForce(double x, double y, int number_particle, double m1, double m2);
+    double getRadii(double x, double y);
 };
 
 #endif // SYSTEM_H
