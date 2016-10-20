@@ -1,6 +1,7 @@
 #include "system.h"
 #include <fstream>
 #include "body.h"
+#include "odesolver.h"
 
 System::System()
 {
@@ -12,7 +13,7 @@ void System::readFile() {
 }
 
 
-double System::calculateForce(double x, double y,int number_particle,double m1, double m2){
+void System::calculateForce(double x, double y,int number_particle,double m1, double m2){
     double temp_r, temp, Fx, Fy;
     double F = new double [1];
     temp_r = getRadii(x,y);
@@ -28,13 +29,25 @@ double System::calculateForce(double x, double y,int number_particle,double m1, 
 
     }
     F = [Fx,Fy];
-    return * F;
+}
 
+void System::calculateAcceleration(double *F, m) {
+    double a = new double[1];
+    for (int i=0; i<=1; i++){
+        a[i] = F[i]/m;
+    }
 
 }
 
-
 double System::getRadii(double x, double y){
     return sqrt(pow(x,2) + pow(y,2));
+}
+
+double System::integrateOneStep(){
+
+    calculateForce(x,y,number_particle,m1,m2,);
+    calculateAcceleration(*F,m);
+    ODESolver(n, timestep, *a);
+
 }
 
