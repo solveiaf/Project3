@@ -18,16 +18,6 @@ double Body::getNumber() {
     return n;
 }
 
-double Body::getRadii(double x, double y) {
-    return sqrt(pow(x,2) + pow(y,2));
-}
-
-double Body::calculateAcceleration(double x, double y) {
-    double h = year/n;
-    double radii = getRadii(x,y);
-    double a = (h*pi*pi*pow(r,3))/(pow(radii,3)*year);
-    return a;
-}
 
 void Body::input() {
     ifstream ifile;
