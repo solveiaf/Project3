@@ -1,49 +1,28 @@
 #include "system.h"
 #include <fstream>
 #include "body.h"
-<<<<<<< HEAD
 #include <string>
 using namespace std;
-=======
 #include "odesolver.h"
->>>>>>> 9175fae37ada45083c58cb573715038fe5b55000
 
-System::System(string filename)
-{
-    readFile();
+System::System(int n) {
+
 }
 
-void System::readFile() {
-    ifile = ifstream;
-    double line = 0.0;
-    double row = 0.0;
-    ifstream.open(filename);
-    while(!infile.eof) {
-        while(!getline(filename, line, '/n')) {
-
-
-        }
-
-        n_particles++;
-    }
+void System::addBody(Body body) {
+    bodies.push_back(body);
+    n_bodies++;
 }
 
-
-void System::calculateForce(double x, double y,int number_particle,double m1, double m2){
+void System::calculatePotentialTwoB(double x, doube y){
     double temp_r, temp, Fx, Fy;
-    double F = new double [1];
+    double* F = new double [2];
+    double m = bodies[0].getMass();
     temp_r = getRadii(x,y);
-    if (number_particle == 2) {
-        temp = -(4*pi*pi*m1)/pow(temp_r,3);
-        Fx = temp*x;
-        Fy = temp*y;
-    }
-    else if (number_particle>2) {
-        temp = - (G*m1*m2)/pow(temp_r,3);
-        Fx = temp*x;
-        Fy = temp*y;
-
-    }
+    temp = -(4*pi*pi*m)/pow(temp_r,3);
+    Fx = temp*x;
+    Fy = temp*y;
+    } 
     F = [Fx,Fy];
 }
 
@@ -52,7 +31,6 @@ void System::calculateAcceleration(double *F, m) {
     for (int i=0; i<=1; i++){
         a[i] = F[i]/m;
     }
-
 }
 
 double System::getRadii(double x, double y){
@@ -60,7 +38,6 @@ double System::getRadii(double x, double y){
 }
 
 double System::integrateOneStep(){
-
     calculateForce(x,y,number_particle,m1,m2,);
     calculateAcceleration(*F,m);
     ODESolver(n, timestep, *a);
