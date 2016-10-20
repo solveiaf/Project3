@@ -8,5 +8,5 @@ System::System()
 }
 
 void System::readFile() {
-    ifile = ifstream
+    ifile = ifstream;
 }

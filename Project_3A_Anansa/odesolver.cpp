@@ -5,13 +5,14 @@
 ODESolver::ODESolver(System system) {
     n = Body::getNumber();
     h = Body::getStep();
+    a = system.calculateAcceleration();
     x = new double[n];
     y = new double[n];
     VelocityVerlet();
     Euler();
 }
 
-void ODESolver::VelocityVerlet() {
+void ODESolver::VelocityVerlet(double a) {
     //Algortihm for calculating velocity verlet
     for (int i = 0; i<n; i++) {
         a = System::calculateAcceleration(x[i],y[i]);
