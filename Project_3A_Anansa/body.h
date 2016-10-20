@@ -1,6 +1,10 @@
 #ifndef BODY_H
 #define BODY_H
 #include <cmath>
+#include "body.h"
+#include <fstream>
+#include <string>
+using namespace std;
 
 class Body
 {

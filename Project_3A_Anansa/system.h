@@ -7,7 +7,7 @@ class System
 private:
     int n_particles;
 public:
-    System();
+    System(string filename);
     void readFile();
     //Two body problem
     double calculateForce(double x, double y, int number_particle, double m1, double m2);

@@ -1,9 +1,3 @@
-#include "body.h"
-#include <cmath>
-#include <fstream>
-#include <string>
-using namespace std;
-
 Body::Body(double x, double y, double vx, double vy, double AU, double year, double n)
 {
     h = year/n;

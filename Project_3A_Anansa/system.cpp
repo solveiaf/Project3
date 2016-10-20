@@ -1,14 +1,27 @@
 #include "system.h"
 #include <fstream>
 #include "body.h"
+#include <string>
+using namespace std;
 
-System::System()
+System::System(string filename)
 {
     readFile();
 }
 
 void System::readFile() {
     ifile = ifstream;
+    double line = 0.0;
+    double row = 0.0;
+    ifstream.open(filename);
+    while(!infile.eof) {
+        while(!getline(filename, line, '/n')) {
+
+
+        }
+
+        n_particles++;
+    }
 }
 
 
